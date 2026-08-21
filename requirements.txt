@@ -1,0 +1,40 @@
+# Core dependencies
+doppler-sdk
+openai
+langchain-openai
+pydantic
+
+# Data processing
+pandas
+numpy
+openpyxl
+
+# Visualization
+matplotlib
+pillow
+imageio
+grandalf
+
+# Vector databases
+faiss-cpu
+chromadb
+
+# LangChain ecosystem
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# Document processing
+pypdf
+docx2txt
+
+# Utilities
+python-dotenv
+requests
+typing-extensions
+tiktoken
+
+# Development environment
+ipython
+jupyter
