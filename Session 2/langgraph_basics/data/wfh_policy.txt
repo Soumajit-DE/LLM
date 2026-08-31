@@ -1,0 +1,9 @@
+Work From Home (WFH) Policy
+
+Eligibility: Employees who have completed at least 3 months of service are eligible for WFH.
+Frequency: Maximum 3 days WFH per week; remaining days must be in-office.
+Working Hours: Must be available and reachable between 9 AM - 5 PM local time.
+Workspace: A quiet, dedicated workspace with stable internet (min 10 Mbps) is required.
+VPN: Company VPN must be active at all times when accessing internal systems remotely.
+Team Meetings: Attendance at weekly team meetings is mandatory in-office.
+Approval: WFH days must be pre-approved by the direct manager via the HR portal.

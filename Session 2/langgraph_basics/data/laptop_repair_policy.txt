@@ -1,0 +1,8 @@
+Laptop Repair & Replacement Policy
+
+Report Issues: Raise a ticket at helpdesk.company.com or call the IT helpline (ext. 1234).
+Response Time: IT support will respond within 24 hours on working days.
+Repair Coverage: Hardware repairs costing up to $500 are covered by the company.
+Loan Device: A temporary loan device will be issued within 1 working day if repair takes longer than 24 hours.
+Data Backup: Employees are responsible for backing up data before submitting their device.
+Replacement: Laptops older than 4 years are eligible for replacement upon manager approval.
