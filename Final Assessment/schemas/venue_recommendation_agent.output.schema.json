@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "VenueOption": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "area": {
+          "description": "Neighborhood or district within the requested location",
+          "title": "Area",
+          "type": "string"
+        },
+        "capacity": {
+          "exclusiveMinimum": 0,
+          "title": "Capacity",
+          "type": "integer"
+        },
+        "estimated_cost_usd": {
+          "minimum": 0,
+          "title": "Estimated Cost Usd",
+          "type": "number"
+        },
+        "amenities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Amenities",
+          "type": "array"
+        },
+        "rationale": {
+          "description": "Why this venue fits the brief",
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "area",
+        "capacity",
+        "estimated_cost_usd",
+        "rationale"
+      ],
+      "title": "VenueOption",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "recommended_venues": {
+      "items": {
+        "$ref": "#/$defs/VenueOption"
+      },
+      "minItems": 1,
+      "title": "Recommended Venues",
+      "type": "array"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "recommended_venues"
+  ],
+  "title": "VenueRecommendation",
+  "type": "object"
+}

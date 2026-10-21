@@ -1,0 +1,70 @@
+{
+  "$defs": {
+    "EventType": {
+      "description": "Shared event taxonomy used as input by every agent.",
+      "enum": [
+        "conference",
+        "wedding",
+        "corporate_offsite",
+        "product_launch",
+        "gala",
+        "workshop",
+        "other"
+      ],
+      "title": "EventType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "event_type": {
+      "$ref": "#/$defs/EventType"
+    },
+    "headcount": {
+      "description": "Expected number of attendees",
+      "exclusiveMinimum": 0,
+      "title": "Headcount",
+      "type": "integer"
+    },
+    "budget_usd": {
+      "description": "Total budget available for the venue",
+      "exclusiveMinimum": 0,
+      "title": "Budget Usd",
+      "type": "number"
+    },
+    "location": {
+      "description": "City or region where the venue is needed",
+      "minLength": 1,
+      "title": "Location",
+      "type": "string"
+    },
+    "event_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO date (YYYY-MM-DD) if known",
+      "title": "Event Date"
+    },
+    "special_requirements": {
+      "description": "e.g. 'wheelchair accessible', 'outdoor space', 'on-site parking'",
+      "items": {
+        "type": "string"
+      },
+      "title": "Special Requirements",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_type",
+    "headcount",
+    "budget_usd",
+    "location"
+  ],
+  "title": "VenueRequest",
+  "type": "object"
+}

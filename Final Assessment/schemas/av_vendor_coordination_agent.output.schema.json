@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "AVSetupItem": {
+      "properties": {
+        "category": {
+          "description": "e.g. 'audio', 'video', 'lighting', 'staging', 'connectivity'",
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "quantity": {
+          "minimum": 1,
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "category",
+        "description",
+        "quantity"
+      ],
+      "title": "AVSetupItem",
+      "type": "object"
+    },
+    "VendorSuggestion": {
+      "properties": {
+        "vendor_role": {
+          "description": "e.g. 'AV production company', 'livestream provider'",
+          "title": "Vendor Role",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vendor_role",
+        "notes"
+      ],
+      "title": "VendorSuggestion",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "av_setup": {
+      "items": {
+        "$ref": "#/$defs/AVSetupItem"
+      },
+      "minItems": 1,
+      "title": "Av Setup",
+      "type": "array"
+    },
+    "recommended_vendors": {
+      "items": {
+        "$ref": "#/$defs/VendorSuggestion"
+      },
+      "minItems": 1,
+      "title": "Recommended Vendors",
+      "type": "array"
+    },
+    "estimated_cost_usd": {
+      "minimum": 0,
+      "title": "Estimated Cost Usd",
+      "type": "number"
+    },
+    "setup_lead_time_hours": {
+      "minimum": 0,
+      "title": "Setup Lead Time Hours",
+      "type": "number"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "av_setup",
+    "recommended_vendors",
+    "estimated_cost_usd",
+    "setup_lead_time_hours"
+  ],
+  "title": "AVPlan",
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "EventType": {
+      "description": "Shared event taxonomy used as input by every agent.",
+      "enum": [
+        "conference",
+        "wedding",
+        "corporate_offsite",
+        "product_launch",
+        "gala",
+        "workshop",
+        "other"
+      ],
+      "title": "EventType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "event_type": {
+      "$ref": "#/$defs/EventType"
+    },
+    "headcount": {
+      "exclusiveMinimum": 0,
+      "title": "Headcount",
+      "type": "integer"
+    },
+    "budget_usd": {
+      "exclusiveMinimum": 0,
+      "title": "Budget Usd",
+      "type": "number"
+    },
+    "venue_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "e.g. 'ballroom', 'outdoor', 'theater' - from the venue agent's output",
+      "title": "Venue Type"
+    },
+    "special_requirements": {
+      "description": "e.g. 'livestream', 'hybrid attendance', 'stage lighting'",
+      "items": {
+        "type": "string"
+      },
+      "title": "Special Requirements",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_type",
+    "headcount",
+    "budget_usd"
+  ],
+  "title": "AVRequest",
+  "type": "object"
+}

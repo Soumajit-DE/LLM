@@ -1,0 +1,97 @@
+{
+  "$defs": {
+    "RunOfShowItem": {
+      "properties": {
+        "start_time": {
+          "description": "24h HH:MM",
+          "title": "Start Time",
+          "type": "string"
+        },
+        "end_time": {
+          "description": "24h HH:MM",
+          "title": "End Time",
+          "type": "string"
+        },
+        "activity": {
+          "title": "Activity",
+          "type": "string"
+        },
+        "owner": {
+          "description": "e.g. 'Catering team', 'AV crew', 'Host'",
+          "title": "Owner",
+          "type": "string"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "start_time",
+        "end_time",
+        "activity",
+        "owner"
+      ],
+      "title": "RunOfShowItem",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "event_name": {
+      "title": "Event Name",
+      "type": "string"
+    },
+    "event_date": {
+      "title": "Event Date",
+      "type": "string"
+    },
+    "selected_venue": {
+      "description": "Name of the venue chosen from `venue.recommended_venues`",
+      "title": "Selected Venue",
+      "type": "string"
+    },
+    "run_of_show": {
+      "items": {
+        "$ref": "#/$defs/RunOfShowItem"
+      },
+      "minItems": 1,
+      "title": "Run Of Show",
+      "type": "array"
+    },
+    "overall_notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Overall Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_name",
+    "event_date",
+    "selected_venue",
+    "run_of_show"
+  ],
+  "title": "RunOfShow",
+  "type": "object"
+}

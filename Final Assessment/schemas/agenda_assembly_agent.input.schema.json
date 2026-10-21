@@ -1,0 +1,289 @@
+{
+  "$defs": {
+    "AVPlan": {
+      "properties": {
+        "av_setup": {
+          "items": {
+            "$ref": "#/$defs/AVSetupItem"
+          },
+          "minItems": 1,
+          "title": "Av Setup",
+          "type": "array"
+        },
+        "recommended_vendors": {
+          "items": {
+            "$ref": "#/$defs/VendorSuggestion"
+          },
+          "minItems": 1,
+          "title": "Recommended Vendors",
+          "type": "array"
+        },
+        "estimated_cost_usd": {
+          "minimum": 0,
+          "title": "Estimated Cost Usd",
+          "type": "number"
+        },
+        "setup_lead_time_hours": {
+          "minimum": 0,
+          "title": "Setup Lead Time Hours",
+          "type": "number"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "av_setup",
+        "recommended_vendors",
+        "estimated_cost_usd",
+        "setup_lead_time_hours"
+      ],
+      "title": "AVPlan",
+      "type": "object"
+    },
+    "AVSetupItem": {
+      "properties": {
+        "category": {
+          "description": "e.g. 'audio', 'video', 'lighting', 'staging', 'connectivity'",
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "quantity": {
+          "minimum": 1,
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "category",
+        "description",
+        "quantity"
+      ],
+      "title": "AVSetupItem",
+      "type": "object"
+    },
+    "CateringPlan": {
+      "properties": {
+        "service_style": {
+          "title": "Service Style",
+          "type": "string"
+        },
+        "menu_items": {
+          "items": {
+            "$ref": "#/$defs/MenuItem"
+          },
+          "minItems": 1,
+          "title": "Menu Items",
+          "type": "array"
+        },
+        "staffing_notes": {
+          "title": "Staffing Notes",
+          "type": "string"
+        },
+        "estimated_cost_usd": {
+          "minimum": 0,
+          "title": "Estimated Cost Usd",
+          "type": "number"
+        },
+        "cost_per_head_usd": {
+          "minimum": 0,
+          "title": "Cost Per Head Usd",
+          "type": "number"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "service_style",
+        "menu_items",
+        "staffing_notes",
+        "estimated_cost_usd",
+        "cost_per_head_usd"
+      ],
+      "title": "CateringPlan",
+      "type": "object"
+    },
+    "MenuItem": {
+      "properties": {
+        "course": {
+          "description": "e.g. 'appetizer', 'main', 'dessert', 'beverage'",
+          "title": "Course",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "dietary_tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dietary Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "course",
+        "description"
+      ],
+      "title": "MenuItem",
+      "type": "object"
+    },
+    "VendorSuggestion": {
+      "properties": {
+        "vendor_role": {
+          "description": "e.g. 'AV production company', 'livestream provider'",
+          "title": "Vendor Role",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vendor_role",
+        "notes"
+      ],
+      "title": "VendorSuggestion",
+      "type": "object"
+    },
+    "VenueOption": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "area": {
+          "description": "Neighborhood or district within the requested location",
+          "title": "Area",
+          "type": "string"
+        },
+        "capacity": {
+          "exclusiveMinimum": 0,
+          "title": "Capacity",
+          "type": "integer"
+        },
+        "estimated_cost_usd": {
+          "minimum": 0,
+          "title": "Estimated Cost Usd",
+          "type": "number"
+        },
+        "amenities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Amenities",
+          "type": "array"
+        },
+        "rationale": {
+          "description": "Why this venue fits the brief",
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "area",
+        "capacity",
+        "estimated_cost_usd",
+        "rationale"
+      ],
+      "title": "VenueOption",
+      "type": "object"
+    },
+    "VenueRecommendation": {
+      "properties": {
+        "recommended_venues": {
+          "items": {
+            "$ref": "#/$defs/VenueOption"
+          },
+          "minItems": 1,
+          "title": "Recommended Venues",
+          "type": "array"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "recommended_venues"
+      ],
+      "title": "VenueRecommendation",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "event_name": {
+      "title": "Event Name",
+      "type": "string"
+    },
+    "event_date": {
+      "description": "ISO date (YYYY-MM-DD)",
+      "title": "Event Date",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "24h HH:MM",
+      "title": "Start Time",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "24h HH:MM",
+      "title": "End Time",
+      "type": "string"
+    },
+    "venue": {
+      "$ref": "#/$defs/VenueRecommendation",
+      "description": "Output of VenueAgent"
+    },
+    "catering": {
+      "$ref": "#/$defs/CateringPlan",
+      "description": "Output of CateringLogisticsAgent"
+    },
+    "av": {
+      "$ref": "#/$defs/AVPlan",
+      "description": "Output of AVVendorCoordinationAgent"
+    }
+  },
+  "required": [
+    "event_name",
+    "event_date",
+    "start_time",
+    "end_time",
+    "venue",
+    "catering",
+    "av"
+  ],
+  "title": "AgendaRequest",
+  "type": "object"
+}

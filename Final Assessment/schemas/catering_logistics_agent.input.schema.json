@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "EventType": {
+      "description": "Shared event taxonomy used as input by every agent.",
+      "enum": [
+        "conference",
+        "wedding",
+        "corporate_offsite",
+        "product_launch",
+        "gala",
+        "workshop",
+        "other"
+      ],
+      "title": "EventType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "event_type": {
+      "$ref": "#/$defs/EventType"
+    },
+    "headcount": {
+      "exclusiveMinimum": 0,
+      "title": "Headcount",
+      "type": "integer"
+    },
+    "budget_usd": {
+      "exclusiveMinimum": 0,
+      "title": "Budget Usd",
+      "type": "number"
+    },
+    "meal_period": {
+      "enum": [
+        "breakfast",
+        "brunch",
+        "lunch",
+        "dinner",
+        "reception"
+      ],
+      "title": "Meal Period",
+      "type": "string"
+    },
+    "dietary_restrictions": {
+      "description": "e.g. 'vegetarian', 'gluten-free', 'halal'",
+      "items": {
+        "type": "string"
+      },
+      "title": "Dietary Restrictions",
+      "type": "array"
+    },
+    "service_style_preference": {
+      "anyOf": [
+        {
+          "enum": [
+            "plated",
+            "buffet",
+            "family_style",
+            "food_stations",
+            "cocktail"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Service Style Preference"
+    }
+  },
+  "required": [
+    "event_type",
+    "headcount",
+    "budget_usd",
+    "meal_period"
+  ],
+  "title": "CateringRequest",
+  "type": "object"
+}

@@ -1,0 +1,74 @@
+{
+  "$defs": {
+    "MenuItem": {
+      "properties": {
+        "course": {
+          "description": "e.g. 'appetizer', 'main', 'dessert', 'beverage'",
+          "title": "Course",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "dietary_tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dietary Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "course",
+        "description"
+      ],
+      "title": "MenuItem",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "service_style": {
+      "title": "Service Style",
+      "type": "string"
+    },
+    "menu_items": {
+      "items": {
+        "$ref": "#/$defs/MenuItem"
+      },
+      "minItems": 1,
+      "title": "Menu Items",
+      "type": "array"
+    },
+    "staffing_notes": {
+      "title": "Staffing Notes",
+      "type": "string"
+    },
+    "estimated_cost_usd": {
+      "minimum": 0,
+      "title": "Estimated Cost Usd",
+      "type": "number"
+    },
+    "cost_per_head_usd": {
+      "minimum": 0,
+      "title": "Cost Per Head Usd",
+      "type": "number"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "service_style",
+    "menu_items",
+    "staffing_notes",
+    "estimated_cost_usd",
+    "cost_per_head_usd"
+  ],
+  "title": "CateringPlan",
+  "type": "object"
+}
